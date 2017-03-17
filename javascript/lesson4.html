@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js_04</title>
+	<script type="text/javascript">
+	var time = new Date().getHours();
+		if (time<10) {alert("morning");}
+			else if (time<20) {alert("day");}
+				else alert("evening");
+
+	function thought(){
+		var day = new Date().getDay();
+		switch (day)
+		{
+			case 6:
+			x = "it is saturday";
+			break;
+			case 7:
+			x = "it is sunday";
+			break;
+			default:
+			x = "weekend comes soon"
+		}
+		document.getElementById("1").innerHTML=x;
+	}
+	var y = "";
+	var car=["das Auto","Volvo","Audi"];
+	function loop(){
+		for (var i =0;i < car.length ; i++) {
+			x=car[i];
+			
+			y = y+x;
+		}
+		document.getElementById(2).innerHTML=y;
+	}
+	var j=0,k="";
+	function loop2(){
+		while (car[j]) {
+		k = k+car[j]; 
+		j++;
+		}
+		document.getElementById(3).innerHTML=k;
+	}
+	</script>
+</head>
+<body><pre>
+ECMAScript if 语句
+if (condition1) statement1 else if (condition2) statement2 else statement3</pre>
+
+	<pre>switch(n)
+{
+case 1:
+  执行代码块 1
+  break;
+case 2:
+  执行代码块 2
+  break;
+default:
+  n 与 case 1 和 case 2 不同时执行的代码
+}</pre>
+	<p id="1"></p><button type="button" onclick="thought()">whatinyourmind?</button>
+
+<pre style="color: #D73939">
+ECMAScript 和 Java 中的 switch 语句
+ECMAScript 和 Java 中的 switch 语句有两点不同。在 ECMAScript 中，switch 语句可以用于字符串，而且能用不是常量的值说明情况：
+var BLUE = "blue", RED = "red", GREEN  = "green";
+
+switch (sColor) {
+  case BLUE: alert("Blue");
+    break;
+  case RED: alert("Red");
+    break;
+  case GREEN: alert("Green");
+    break;
+  default: alert("Other");
+}
+这里，switch 语句用于字符串 sColor，声明 case 使用的是变量 BLUE、RED 和 GREEN，这在 ECMAScript 中是完全有效的。</pre>
+<pre>
+不同类型的循环
+JavaScript 支持不同类型的循环：
+for - 循环代码块一定的次数
+for/in - 循环遍历对象的属性
+while - 当指定的条件为 true 时循环指定的代码块
+do/while - 同样当指定的条件为 true 时循环指定的代码块</pre>
+<p id="2"></p>
+<button onclick="loop()">for语句循环</button>
+<p id="3"></p>
+<button onclick="loop2()">while语句循环显示所有值</button>
+</body>
+</html>
