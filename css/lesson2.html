@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+		background-color: #7A7777;
+	}
+		@font-face
+		{
+			font-family: chinese;
+			src:url(汉仪中黑简.ttf);
+		}	
+		@keyframes test{
+			0%{background-color:#FFFFFF;left: 0px; top:0px;}
+			50%{background-color: #790000;left: 20px ;top:20px;}
+			70%{background-color: #E81E1E;left: 0px ;top:0px;}
+			100%{background-color: #000000;left: 210px ;top:220px;}
+		}
+		div{
+			border: 5px  #63ABF2 dotted;
+			padding: 20px;
+			width: 600px;
+			height: 100%;
+			background-color: #F65959;
+			background-repeat: no-repeat;
+			background-clip: content-box;
+			font-family: chinese;
+		}
+		#div1{
+			width: 100px;
+			height: 100px;
+			background-color: #FF4CAA;
+			transition: width 2s,height 2s,transform 1s,background-color 2s;
+		}
+		#div1:hover{
+			width:200px;
+			height: 200px;
+			background-color: #8B01C4;
+			transform: rotate(45deg);
+		}
+		.newspaper{
+			column-count: 3;
+			resize: both;
+			overflow: auto;
+		}
+		#div3{
+			background-color: #E0DF50;
+			width: 20px;
+			height:30px;
+			transition: width 5s;
+		}
+		#div3:hover{
+			background-color: #E0DF50;
+			width: 200px;
+		}
+		#div4{
+			width: 200px;
+			height: 50px;
+			position: relative;
+			animation: test 5s;
+		}
+	</style>
+</head>
+<body>
+		<div>2017年3月12日测试<br>
+		2017年3月12日测试<br>
+		2017年3月12日测试<br>
+		2017年3月12日测试<br></div>
+		2017年3月12日测试
+		<div class="newspaper">
+		2017年3月12日测试2017年3月12日测试2017年3月12日测试2017年3月12日测试2017年3月12日测试
+		2017年3月12日测试2017年3月12日测试2017年3月12日测试2017年3月12日测试2017年3月12日测试
+		2017年3月12日测试2017年3月12日测试2017年3月12日测试2017年3月12日测试2017年3月12日测试
+		2017年3月12日测试2017年3月12日测试2017年3月12日测试2017年3月12日测试2017年3月12日测试
+		2017年3月12日测试2017年3月12日测试2017年3月12日测试2017年3月12日测试2017年3月12日测试
+		</div>
+
+		<div id="div1"></div>
+<!-- 		<table border="2" width="300px">
+			<tr>
+				<td>营业额涨幅</td>
+				<td>利润涨幅</td>
+			</tr>
+			<tr>
+				<td><div3>s</div3></td>
+				<td><div4></div4></td>
+			</tr> -->
+		<div id="div3"></div>
+		<div id="div4"></div>
+	
+		</table>
+</body>
+</html>

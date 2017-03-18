@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js_02</title>
+</head>
+<script>
+	var nickname =["katze","liebe","miaumiau"];
+	document.write("her nickname:"+"<br />");
+	document.write(nickname[0]+"<br />");
+	document.write(nickname[1]+"<br />");
+	document.write(nickname[2]+"<br /><br />");
+
+	var Luisa = {major:"vocal",language:"chinese",nickname:nickname,}
+	document.write(Luisa.nickname+"<br />");
+	document.write(Luisa["major"]+"<br />");
+	document.write("'Luisa[0]' is "+Luisa[0]+"<br /><br />");
+
+	katze=new Object();
+	katze.firstname="Luisa";
+	katze.lastname="Li";
+	katze.age=2;
+	katze.eyecolor="brown";
+    var x = katze.firstname;
+	document.write(x+"<br /><br />");
+
+	var message="howlongisthissentence?";
+	var z = message.toUpperCase();
+	var y = message.length;
+	document.write(z+y+"<br />更多关于JavaScript 对象在JavaScript 高级教程http://www.w3school.com.cn/js/pro_js_object_oriented.asp<br />");
+
+</script>
+<body>
+	
+</body>
+</html>

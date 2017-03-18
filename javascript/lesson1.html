@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js_01</title>
+	<script> 
+	document.write("hello");
+
+	function change(){
+		x = document.getElementById("1")
+
+		x.style.color= "#F53F3F";
+	}
+	function change2(){
+		document.getElementById("1").innerHTML="ORZ";
+
+	}
+	function congratulation(){
+		document.write("dont use 'document.write()\
+			' after finishing loading");
+		console.log('clean');	
+	}
+	function tip(){
+		document.getElementById("2").innerHTML="可以在文本字符串中使用反斜杠\
+		对代码行进行换行";
+	}
+	function calculate(){
+		var x = 1;
+		var y = 2;
+		var z = x+y;
+		document.getElementById("3").innerHTML = (z);
+	}
+	</script>
+	</script>
+</head>
+<body>
+	<button type="button" onclick="alert('hi')">try</button>
+	<button type="button" onclick="change()">gun</button>
+	<button type="button" onclick="change2()">rpg</button>
+	<pre id="1">
+00
+大
+	</pre>
+
+	<div id="2">empty<button type="button" onclick="tip()">tip</button></div>
+	<button type="button" onclick="congratulation()">dont touch here</button>
+
+	<div id="3">place for test<button type="button" onclick="calculate()">calculate</button></div>
+</body>
+</html>

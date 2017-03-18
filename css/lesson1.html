@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+
+	background-image: url(lesson1.png);
+	background-repeat: no-repeat;
+	padding-left: 20px;
+	background-size: 35% 90%;
+	}
+	div{ 
+	padding: 10px;
+	text-align: center;
+	border: 5px dotted #819DF3;
+	border-radius: 1px;
+	background-color: #EA689F;
+	width: 50px;
+	height: 100%;
+	box-shadow: 5px 5px 5px #9F9F9F;
+	border-image: url(lesson1.png) 23 23 round;
+
+	background-image: url(lesson1.png);
+	background-origin: content-box;
+		}
+
+	#div1{
+		background-color: #C77373;
+		background-origin: content-box;
+		padding: 20px;
+
+		}
+	#div2{
+		border: 400px 300px;
+		background-color: #54DCCD;
+		text-align: center;
+		word-wrap: normal;
+		background-clip: content-box;
+	}
+	#div3{
+	width:200px;
+		background-color: #364342;
+		text-align: center;
+		word-wrap: break-word;
+		background-clip: content-box;
+	}
+	#div4{
+		text-shadow: #14951E 5px 5px 5px;
+
+transform: scale(1.5);
+	}
+		
+@font-face
+{
+font-family: myFirstFont;
+src: url('汉仪中黑简.ttf')
+    ,url('/example/css3/Sansation_Light.eot'); /* IE9+ */
+}
+
+#div5
+{
+font-family:myFirstFont;
+transform: rotate(45deg);
+}
+#div6{
+	
+  animation-fill-mode: forwards;
+animation: firanim 5s;
+transform: translate(200px);
+}
+#div7{
+
+transform: skew(30deg,20deg);
+}
+
+@keyframes firanim{
+	from{background:red;}
+	to{background:green;}
+}
+
+
+#div9
+{
+width:100px;
+height:100px;
+background:yellow;
+transition:width 2s, height 2s;
+-moz-transition:width 2s, height 2s, -moz-transform 2s; /* Firefox 4 */
+-webkit-transition:width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */
+-o-transition:width 2s, height 2s, -o-transform 2s; /* Opera */
+}
+
+#div9:hover
+{
+width:200px;
+height:200px;
+transform:rotate(180deg);
+-moz-transform:rotate(180deg); /* Firefox 4 */
+-webkit-transform:rotate(180deg); /* Safari and Chrome */
+-o-transform:rotate(180deg); /* Opera */
+}
+
+
+		</style>
+	}
+	}
+</head>
+<body bgcolor="#A14747">
+	<-padding-left: 20px
+	<div>hi</div>
+	usethisimage ->
+	<image src="lesson1.png" width="10px" height="10px"></image>	
+
+	<div id="div1">div1</div>
+	<div id="div2">hereisalongwordwithoutwraphereisalongwordwithoutwraphereisalongwordwithoutwraphereisalongwordwithoutwraphereisalongwordwithoutwraphereisalongwordwithoutwraphereisalongwordwithoutwraphereisalongwordwithoutwrap</div>
+	<div id="div3">hereisalongwordwithwraphereisalongwordwithwraphereisalongwordwithwraphereisalongwordwithwraphereisalongwordwithwraphereisalongwordwithwraphereisalongwordwithwraphereisalongwordwithwrap</div>
+	<div id="div4">text-shadow</div>
+
+	<div id="div5">这是汉仪中黑简</div>
+	<div id="div1">这是普通字</div>
+
+	<div id="div6">translate and animation</div>
+	<div id="div7">skew 30deg 20deg</div>
+
+	<div id="div9"> div hover</div>
+</body>
+</html>
