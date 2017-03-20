@@ -6,10 +6,73 @@
 	<script type="text/javascript">
 		document.write("break语句<br/>");
 		
+		var x = "";
+		var i = 0;
+		for (; i <= 10; i++) {
+			if (i==3)
+			{
+				break;
+			}
+			x = x + i +"<br/>";
+		}
+		document.write(x);
+
 		document.write("continue语句<br/>");
+
+		var y = "";
+		var j = 0;
+		for (; j <= 10; j++) {
+			if (j==3)
+			{
+				continue;
+			}
+			y = y + j +"<br/>";
+		}
+		document.write(y+"<br>");
+
+		var cars = ["Benz","Audi","das Auto"]
+		list:
+		{
+		document.write(cars[0] + "<br>");
+		document.write(cars[1] + "<br>");
+		document.write(cars[2] + "<br><br>");
+		break list;
+		document.write(cars[3] + "<br>");
+		document.write(cars[4] + "<br>");
+		document.write(cars[5] + "<br>");
+		}
+
+
+		document.write("http://www.w3school.com.cn/js/pro_js_statements_break_continue.asp <br /> continue 语句（带有或不带标签引用）只能用在循环中。break 语句（不带标签引用），只能用在循环或 switch 中。通过标签引用，break 语句可用于跳出任何 JavaScript 代码块：+<br /><br />");
+
+		document.write("ECMAScript break 和 continue 语句<br />here are still some doubts.<br />");
+
+		function test1(){
+		var iNum = 0;
+		for (var i=1; i<10; i++) {
+		  if (i % 5 == 0) {
+		    break;
+		  }
+		  iNum++;
+		}
+		alert(iNum);
+		}
+
+		function test2(){
+		var iNum = 0;
+		for (var i=1; i<10; i++) {
+		  if (i % 5 == 0) {
+		    continue;
+		  }
+		  iNum++;
+		}
+		alert(iNum);
+		}
+
 	</script>
 </head>
 <body>
-	
+	<button type="button" onclick="test1()">break</button>
+	<button type="button" onclick="test2()">continue</button>
 </body>
 </html>
