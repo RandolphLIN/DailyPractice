@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animation01</title>
+	<style type="text/css">
+		body{
+		background-color: #808080;
+		size: 24px;
+		}
+		.menu{
+			color: #FFFFFF;
+			font-size: 20px;
+		}
+		#c1{
+			width="200";
+			height="200";
+			background-color: #9E9E9E;
+			border:1px solid;
+			}
+	</style>
+	<script type="text/javascript">
+	//01_1javascript对象
+
+		var objA = {};									//基础对象
+		objA.name = "my object A";						//#01
+		var objB = {
+			name:"my object B",
+			hello:function (person){
+				console.log("hello"+ person);
+			}
+		};
+		objB.hello(" old man");
+
+		function MyObject(person){						//创建一类新对象构造函数
+			this.name = person;							//this是用于添加属性的特殊对象，作为构造函数返回值
+			this.say = function (){
+				console.log("It's " + this.name);
+			};
+		}
+
+		var objC = new MyObject("clone01");
+		objC.say();		
+		var objD = new MyObject("clone02");
+		objD.say();
+
+		MyObject.prototype.hello = function(){			//@01
+			console.log("Greeting "+ this.name);		//不能用person，undefined
+		};
+		objC.hello();									//printf:"Greeting clone01"
+		var objE = new MyObject("Sclone01");			
+		objE.hello();									//构造函数生成的新旧对象都包含新属性
+
+		//创建可共享的类一般放入到一个独立的文件然后导入HTML5文件中
+
+	//01_2函数风格
+
+	//javascript中函数可以赋予变量，被传递作为其他函数的参数，很强大
+		var arr =[1,2,3];								//遍历方法1
+		for (var i=0, len=arr.length;i<arr.length;i++) {
+			console.log(arr[i]);
+		}
+
+		arr.forEach(function (element){					//遍历方法2
+			console.log(element);
+		});
+
+
+	//用户交互 事件与事件处理程序：利用HTML监测事件的功能，@2例子：捕获DOM事件
+
+
+
+
+	</script>
+</head>
+<body>
+	<div class="menu"><pre>
+01_1.javascript对象；
+01_2.函数风格；
+02_1用户交互：
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">canvas教程</a>
+	</pre></div>
+	<div><canvas id="c1"></canvas></div>
+	<script type="text/javascript">	
+	function draw() {
+	  var canvas = document.getElementById('c1');
+	  if (canvas.getContext) {
+	    var ctx1 = canvas.getContext('2d');
+
+	    ctx1.fillRect(25, 25, 100, 100);
+	    ctx1.clearRect(45, 45, 60, 60);
+	    ctx1.strokeRect(50, 50, 50, 50);
+
+		var ctx2 = canvas.getContext('2d');
+
+	    ctx2.beginPath();
+	    ctx2.moveTo(175, 50);
+	    ctx2.lineTo(200, 75);
+	    ctx2.lineTo(200, 25);
+	    ctx2.fill();
+	  }
+	}
+	draw();
+
+		var canvas = document.getElementById("c1");
+		canvas.addEventListener('mousedown',function(event){	//#2
+			console.log("Mouse press on element");
+		},false);
+
+		canvas.addEventListener('mouseup',function(event){
+			console.log("Mouse leave element")
+		},false);
+
+
+		</script>
+</body>
+</html>
