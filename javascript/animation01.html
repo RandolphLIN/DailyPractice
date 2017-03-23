@@ -102,16 +102,24 @@
 	}
 	draw();
 
-		var canvas = document.getElementById("c1");
-		canvas.addEventListener('mousedown',function(event){	//#2
-			console.log("Mouse press on element");
+		var canvas = document.getElementById("c1");				//#2
+		canvas.addEventListener('mousedown',function(event){	//addEventListener不会对指定的类型有异议，mousedown一定要拼对
+			console.log("Mouse press on element");				
 		},false);
-
+																//#？点击十次取消
 		canvas.addEventListener('mouseup',function(event){
-			console.log("Mouse leave element")
+		console.log("Mouse leave element");
 		},false);
 
-
+		function onMouseEvent(event){
+			console.log(event.type);
+		}
+		canvas.addEventListener('mousedown',onMouseEvent,false);		
+		canvas.addEventListener('mouseup',onMouseEvent,false);		
+		canvas.addEventListener('click',onMouseEvent,false);		
+		canvas.addEventListener('mousemove',onMouseEvent,false);		
+		canvas.addEventListener('mouseout',onMouseEvent,false);			
+		canvas.addEventListener('dbclick',onMouseEvent,false);		
 		</script>
 </body>
 </html>
