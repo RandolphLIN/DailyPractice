@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animation02</title>
+	<style>body{
+		background-color: #7F7F7F;
+		}
+		canvas{
+			background-color: #FFFFFF;
+		}
+		</style>
+</head>
+<body>
+<canvas id="canvas" width="300px" height="300px"></canvas>
+	
+	<!-- 鼠标位置 -->
+	<script type="text/javascript" src="utils.js"></script>	<!-- #? -->
+
+	<script type="text/javascript">
+		window.onload = function(){
+		 var canvas = document.getElementById('canvas'),
+			mouse = utils.captureMouse(canvas);
+
+		canvas.addEventListener('mousedown', function(){
+			console.log("x:"+ mouse.x+"y:" + mouse.y);
+		},false);
+
+		}
+	</script>
+</body>
+</html>
