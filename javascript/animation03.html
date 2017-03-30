@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animation03</title>
+	<script type="text/javascript">
+	console.log(Math.sin(30*Math.PI/180));		//三角函数
+	</script>		
+	<style type="text/css">
+		body{
+			background-color: #7B7B7B;
+		}
+		#note{
+			color: #FFFFFF;
+		}
+
+		.red{
+			color:#B51717;
+		}
+	</style>
+
+
+</head>
+<body>
+	<div id="note">
+		<h3>三角学</h3>
+<pre>
+角度和弧度转换公式：
+radians = degrees * Math.PI / 180
+degrees = radians * 180 / Math.PI
+
+坐标系：
+X轴一样 Y轴相反
+<span class="red">canvas顺时针角度为正值 *可以适应这个系统在每次的计算中反转角度</span>
+
+三角函数：
+注意角度转换 console.log(Math.sin(30*Math.PI/180));
+</pre>
+	</div>
+</body>
+</html>
