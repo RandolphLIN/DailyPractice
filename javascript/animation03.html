@@ -13,13 +13,15 @@
 		#note{
 			color: #FFFFFF;
 		}
-
 		.red{
 			color:#B51717;
 		}
+		#canvas{
+			background-color: #FFFFFF;
+			width: 300;
+			height: 300;
+		}
 	</style>
-
-
 </head>
 <body>
 	<div id="note">
@@ -37,5 +39,60 @@ X轴一样 Y轴相反
 注意角度转换 console.log(Math.sin(30*Math.PI/180));
 </pre>
 	</div>
+<canvas id="canvas"></canvas>
+<img src="atan2.gif" width="300px"><br>
+<script type="text/javascript" src="utils.js"></script>
+<script type="text/javascript" src="arrow.js"></script>
+<script type="text/javascript" src="ball.js"></script>
+
+<script type="text/javascript">
+	function q(){
+		var canvas = document.getElementById('canvas'),
+		context = canvas.getContext('2d'),
+		mouse = utils.captureMouse(canvas),
+		arrow = new Arrow();
+
+	arrow.x = canvas.width / 2;
+	arrow.y = canvas.height / 2;
+
+	arrow.scaleX = 0.5;
+	arrow.scaleY = 0.5;
+	(function drawFrame(){
+		window.requestAnimationFrame(drawFrame,canvas);
+		context.clearRect(0, 0, canvas.width,canvas.height);
+
+		var dx = mouse.x - arrow.x,
+			dy = mouse.y - arrow.y;
+
+		arrow.rotation = Math.atan2(dy,dx);		//Math.atan(dy/dx)
+		arrow.draw(context);
+
+	}()	);
+    };
+
+	function p(){
+	var canvas = document.getElementById('canvas'),
+	context = canvas.getContext('2d'),
+	ball = new Ball(),
+	angle = 0;
+	ball.radius = 20;
+	ball.x = 0;
+	ball.y = canvas.height / 2;
+
+	(function drawFrame(){
+		window.requestAnimationFrame(drawFrame,canvas);
+		context.clearRect(0, 0, canvas.width,canvas.height);
+
+		ball.y = canvas.height / 2 + Math.sin(angle) * 20;
+		angle += 0.1;
+		ball.x += 1;
+		ball.draw(context);
+
+	}()	);
+
+	};
+</script>
+<button type="button" onclick="p()">p()</button>
+<button type="button" onclick="q()">q()</button>
 </body>
 </html>

@@ -3,57 +3,47 @@
 <head>
 	<meta charset="UTF-8">
 	<title>animation02</title>
-	<style>body{
+	<style>
+	body{
 		background-color: #7F7F7F;
 		}
-		canvas{
+	canvas{
 			background-color: #FFFFFF;
 		}
-		</style>
+	#float{
+		float: right;
+	}
+	</style>
+		
 </head>
 <body>
+<div>
 <canvas id="canvas" width="300px" height="300px"></canvas>
-	
+	<img id="float" src="dhtmopos.gif" alt="WTF..." >
 	<!-- 鼠标位置 -->
 	<script type="text/javascript" src="utils.js"></script>	<!-- #? -->
+	<!-- 键盘码 -->
+	<script type="text/javascript" src="keycode.js"></script>
 
-	<!-- <script type="text/javascript">						//#1鼠标
-		window.onload = function(){
-		 var canvas = document.getElementById('canvas'),
+	<script type="text/javascript">						
+
+	window.onload = function(){
+//#1鼠标
+		var canvas = document.getElementById('canvas'),
 			mouse = utils.captureMouse(canvas);
 
 		canvas.addEventListener('mousedown', function(){
 			console.log("x:"+ mouse.x+"y:" + mouse.y);
 		},false);
 
-		}
-	</script>
- -->
-
-	<!-- <script type="text/javascript">				//#2触摸点
-		window.onload = function(){
-		 var canvas1 = document.getElementById('canvas'),
-			touch = utils.captureTouch(canvas);
-
-
-
+//#2触摸点
+		touch = utils.captureTouch(canvas);
 		canvas.addEventListener('touchmove', function(){
 			console.log("x:"+ touch.x +" y:" + touch.y);
 		},false);
+//#3键盘码
 
-
-		if(touch.isPressed){
-			console.log("success");
-		};
-
-		}
-	</script> -->
-
-
-	<script type="text/javascript" src="keycode.js"></script>	
-	<script type="text/javascript">						//#3键盘码
-			window.onload = function(){
-				function onKeyboardEvent(event){
+		function onKeyboardEvent(event){
 					switch (event.keyCode) {
 						case keycode.UP:
 							console.log('up')
@@ -65,14 +55,12 @@
 							console.log(event.keyCode);
 					}
 				}
-				window.addEventListener('keydown', onKeyboardEvent, false);
-			};
+		window.addEventListener('keydown', onKeyboardEvent, false);
+	}
 	</script>
-
-
-
 	<br>鼠标位置写法---#？
 	<br>触摸点位置写法---#？
-	<br>键盘码---@ keycode.js !
+	<br>键盘码---@keycode.js !
+</div>
 </body>
 </html>
