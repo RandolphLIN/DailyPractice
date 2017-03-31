@@ -18,7 +18,6 @@ Ball.prototype.draw = function(context){
 	context.rotate(this.rotation);
 	context.scale(this.scaleX, this.scaleY);
 	context.lineWidth = this.lineWidth;
-
 	context.fillStyle = this.color;
 	context.beginPath();
 	//x, y, radius, start_angle, end_angle, anti-clockwise

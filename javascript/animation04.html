@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="GB2312">
+	<meta charset="UTF-8">
+	<title>animation04</title>
+	<style type="text/css">
+	#b{
+		background-color:#7F7F7F; 
+
+	}
+	</style>
+
+
+</head>
+<body>
+<div id="b">so sad</div>
+<script type="text/javascript">
+		var hex =(16733683).toString(16);							//#?
+		console.log(hex);
+		var color = "#"+ hex;
+		console.log(color);
+		// document.body.style.backgroundColor = color;				//it work
+		document.getElementById('b').style.backgroundColor = color;				//支持颜色单词，#xxxxxx；id+''!!!
+		// document.getElementById(b).innerHTML = "11";				//not work
+		// document.getElementById(b).innerHTML = #C73535;			//not work
+</script>
+
+
+<div><p>58至62页需要温习</p></div>
+<!-- @utils.js 与颜色相关的工具函数 -->
+
+<div align="right"><a href="index.html">return</a></div>	
+</body>
+</html>

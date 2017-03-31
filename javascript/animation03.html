@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="GB2312">
 	<meta charset="UTF-8">
 	<title>animation03</title>
 	<script type="text/javascript">
-	console.log(Math.sin(30*Math.PI/180));		//ä¸‰è§’å‡½æ•°
+	console.log(Math.sin(30*Math.PI/180));		//Èı½Çº¯Êı
 	</script>		
 	<style type="text/css">
 		body{
@@ -16,67 +17,87 @@
 		.red{
 			color:#B51717;
 		}
-		#canvas{
+		canvas{
 			background-color: #FFFFFF;
 			width: 300;
 			height: 300;
 		}
+		
 	</style>
 </head>
 <body>
 	<div id="note">
-		<h3>ä¸‰è§’å­¦</h3>
+		<h3>Èı½ÇÑ§</h3>
 <pre>
-è§’åº¦å’Œå¼§åº¦è½¬æ¢å…¬å¼ï¼š
+½Ç¶ÈºÍ»¡¶È×ª»»¹«Ê½£º
 radians = degrees * Math.PI / 180
 degrees = radians * 180 / Math.PI
 
-åæ ‡ç³»ï¼š
-Xè½´ä¸€æ · Yè½´ç›¸å
-<span class="red">canvasé¡ºæ—¶é’ˆè§’åº¦ä¸ºæ­£å€¼ *å¯ä»¥é€‚åº”è¿™ä¸ªç³»ç»Ÿåœ¨æ¯æ¬¡çš„è®¡ç®—ä¸­åè½¬è§’åº¦</span>
+×ø±êÏµ£º
+XÖáÒ»Ñù YÖáÏà·´
+<span class="red">canvasË³Ê±Õë½Ç¶ÈÎªÕıÖµ *¿ÉÒÔÊÊÓ¦Õâ¸öÏµÍ³ÔÚÃ¿´ÎµÄ¼ÆËãÖĞ·´×ª½Ç¶È</span>
 
-ä¸‰è§’å‡½æ•°ï¼š
-æ³¨æ„è§’åº¦è½¬æ¢ console.log(Math.sin(30*Math.PI/180));
+Èı½Çº¯Êı£º
+×¢Òâ½Ç¶È×ª»» console.log(Math.sin(30*Math.PI/180));
 </pre>
 	</div>
+
+<div>
 <canvas id="canvas"></canvas>
 <img src="atan2.gif" width="300px"><br>
+<button type="button" onclick="p()">ÏßĞÔ´¹Ö±</button>
+<button type="button" onclick="q()">Âö³å</button>
+<button type="button" onclick="r()">¼ÙËæ»ú</button>
+</div>
+<div>
+<canvas id="canvas1"></canvas><br>
+<button type="button" onclick="o()">Ğı×ª</button>
+<button type="button" onclick="s()">API²úÉúµÄ²¨</button>
+<button type="button" onclick="t()">Ô²ÖÜÔË¶¯</button>
+<button type="button" onclick="u()">ÍÖÔ²ÔË¶¯</button>
+
+</div>
+<div>
+<canvas id="canvas2"></canvas>
+<span id="distance"></span><br>
+<button type="button" onclick="v()">¹´¹É¶¨ÀíÈ¡¾àÀë</button>
+
+</div>
 <script type="text/javascript" src="utils.js"></script>
 <script type="text/javascript" src="arrow.js"></script>
 <script type="text/javascript" src="ball.js"></script>
 
 <script type="text/javascript">
-	function q(){
-		var canvas = document.getElementById('canvas'),
-		context = canvas.getContext('2d'),
-		mouse = utils.captureMouse(canvas),
+	function o(){													//Ğı×ª
+		var canvas1 = document.getElementById('canvas1'),
+		context = canvas1.getContext('2d'),
+		mouse = utils.captureMouse(canvas1),
+		centerScale = 0.4;
 		arrow = new Arrow();
 
 	arrow.x = canvas.width / 2;
 	arrow.y = canvas.height / 2;
 
-	arrow.scaleX = 0.5;
-	arrow.scaleY = 0.5;
 	(function drawFrame(){
-		window.requestAnimationFrame(drawFrame,canvas);
+		window.requestAnimationFrame(drawFrame,canvas1);
 		context.clearRect(0, 0, canvas.width,canvas.height);
 
+		arrow.scaleX = arrow.scaleY = centerScale;
 		var dx = mouse.x - arrow.x,
 			dy = mouse.y - arrow.y;
-
 		arrow.rotation = Math.atan2(dy,dx);		//Math.atan(dy/dx)
 		arrow.draw(context);
 
 	}()	);
     };
 
-	function p(){
+	function p(){													//ÏßĞÔ´¹Ö±
 	var canvas = document.getElementById('canvas'),
 	context = canvas.getContext('2d'),
 	ball = new Ball(),
 	angle = 0;
 	ball.radius = 20;
-	ball.x = 0;
+	ball.x = canvas.width/2;
 	ball.y = canvas.height / 2;
 
 	(function drawFrame(){
@@ -85,14 +106,163 @@ Xè½´ä¸€æ · Yè½´ç›¸å
 
 		ball.y = canvas.height / 2 + Math.sin(angle) * 20;
 		angle += 0.1;
-		ball.x += 1;
 		ball.draw(context);
 
 	}()	);
-
 	};
+
+	function q(){													//Âö³å
+	var canvas = document.getElementById('canvas'),
+	context = canvas.getContext('2d'),
+	ball = new Ball(),
+	angle = 0;
+	angleB = 0;
+	centerScale = 1;
+	ball.radius = 20;
+	ball.x = canvas.width / 2;
+	ball.y = canvas.height / 2;
+
+	(function drawFrame(){
+		window.requestAnimationFrame(drawFrame,canvas);
+		context.clearRect(0, 0, canvas.width,canvas.height);
+		ball.scaleX = ball.scaleY = centerScale = Math.sin(angleB);
+		angle += 0.1;
+		angleB += 0.08;
+		ball.draw(context);
+
+	}()	);
+	};
+
+	function r(){													//¼ÙËæ»ú
+	var canvas = document.getElementById('canvas'),
+	context = canvas.getContext('2d'),
+	ball = new Ball(),
+	angleX = 0,
+	angleY = 0,
+	centerX = canvas.width/2,
+	centerY = canvas.height/3,
+	xspeed = 0.07,
+	yspeed = 0.11;
+
+	(function drawFrame(){
+		window.requestAnimationFrame(drawFrame,canvas);
+		context.clearRect(0, 0, canvas.width,canvas.height);	 	
+	 	ball.x = centerX + Math.sin(angleX)*50;
+	 	ball.y = centerY + Math.sin(angleY)*05;
+	 	ball.scaleX = ball.scaleY = 0.05;
+	 	ball.color ="#000000";
+	 	angleX += xspeed;
+	 	angleY += yspeed;
+		ball.draw(context);
+
+	}()	);
+	};
+
+	function s(){													//API²úÉúµÄ²¨
+	var canvas1 = document.getElementById('canvas1');
+	context = canvas1.getContext('2d'),
+	angle = 0,
+	range = 50,
+	centerY = canvas.height / 2;
+	xspeed = 1,
+	yspeed = 0.05;
+	xpos = 0,
+	ypos = centerY;
+
+	context.lineWidth = 2;
+
+	(function drawFrame(){											
+		window.requestAnimationFrame(drawFrame,canvas1);
+		// context.clearRect(0, 0, canvas.width,canvas.height);			//²»Çå³ı	 	
+		 context.beginPath();
+		 context.moveTo(xpos,ypos);							//calculate new position
+		 xpos += xspeed;
+		 angle += yspeed;
+		 ypos = centerY + Math.sin(angle)*range;
+		 context.lineTo(xpos,ypos);
+		 context.stroke();
+	}()	);
+	};
+
+	function t(){													//Ô²ÖÜÔË¶¯
+	var canvas1 = document.getElementById('canvas1');
+	context = canvas1.getContext('2d'),
+	ball = new Ball(),
+	angle = 0,
+	centerX = canvas.width/2,
+	centerY = canvas.height/2,
+	radius = 50,
+	speed = 0.05;
+
+	(function drawFrame(){
+		window.requestAnimationFrame(drawFrame,canvas1);
+		context.clearRect(0, 0, canvas1.width,canvas.height);	 	
+		ball.x = centerX + Math.sin(angle)*radius;
+		ball.y = centerY + Math.cos(angle)*radius;
+		ball.radius = 7;
+		angle += speed;
+
+		ball.draw(context);
+	}()	);
+	};
+
+	function u(){													//ÍÖÔ²ÔË¶¯
+	var canvas1 = document.getElementById('canvas1');
+	context = canvas1.getContext('2d'),
+	ball = new Ball(),
+	angle = 0,
+	centerX = canvas.width/2,
+	centerY = canvas.height/2,
+	radiusa = 60,
+	radiusb = 50,
+	speed = 0.05;
+
+	(function drawFrame(){
+		window.requestAnimationFrame(drawFrame,canvas1);
+		context.clearRect(0, 0, canvas1.width,canvas.height);	 	
+		ball.x = centerX + Math.sin(angle)*radiusa;
+		ball.y = centerY + Math.cos(angle)*radiusb;
+		ball.radius = 7;
+		angle += speed;
+
+		ball.draw(context);
+	}()	);
+	};
+
+
+	function v(){												//¹´¹É¶¨Àí²â¾à
+	var canvas2 = document.getElementById('canvas2');
+	context = canvas2.getContext('2d'),
+	mouse = utils.captureMouse(canvas2),
+	ball = new Ball();
+
+	(function drawFrame(){
+		window.requestAnimationFrame(drawFrame,canvas2);
+		context.clearRect(0, 0, canvas2.width, canvas2.height);
+		ball.radius = 1;
+		ball.x = canvas2.width/2;
+		ball.y = canvas2.height/2;
+
+		var dx = mouse.x - ball.x,
+			dy = mouse.y - ball.y;
+		dis = Math.sqrt(dx*dx+dy*dy);
+		ball.draw(context);
+
+		context.beginPath();
+		context.moveTo(ball.x,ball.y);
+		context.lineTo(mouse.x,mouse.y);
+		context.closePath();
+		context.stroke();
+
+		document.getElementById('distance').innerHTML = dis;
+	}());
+	//²»Æğ×÷ÓÃ  document.getElementById('distance').innerHTML = dis;
+	};
+
+
+	
 </script>
-<button type="button" onclick="p()">p()</button>
-<button type="button" onclick="q()">q()</button>
+
+<div align="right"><a href="index.html">return</a></div>
 </body>
 </html>

@@ -3,12 +3,15 @@ function Arrow(){
 	this.y = 0;
 	this.color = "#C55959";
 	this.rotation = 0;
+	this.scaleX = 0.5;
+	this.scaleY = 0.5;
 }
 
 Arrow.prototype.draw = function(context){
 	context.save();
 	context.translate(this.x, this.y);
 	context.rotate(this.rotation);
+	context.scale(this.scaleX, this.scaleY);			//不能放后面
 	context.lineWidth = 2;
 	context.fillStyle = this.color;
 	context.beginPath();
